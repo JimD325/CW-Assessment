@@ -17,14 +17,15 @@ function MainFunctional() {
     
   }, []);
 
-  const organizeData = (data) => {
-      setData(data)
-  }
+  // const organizeData = (dataToSort) => {
+  //   console.log('dataSorted on organize Data')
+  //     setData(dataToSort)
+  // }
 
   return (
       <div className="App">
         <Header />
-        <TableComponent data={data} organizeData = {organizeData} />
+        <TableComponent data={data} />
         <Footer />
       </div>
   );

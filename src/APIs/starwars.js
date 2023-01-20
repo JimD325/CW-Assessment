@@ -3,7 +3,7 @@ import axios from "axios";
 const starwars = {
   getPeople: async () => {
     try {
-      const response = await axios.get("https://swapi.dev/api/people");
+      const response = await axios.get("https://swapi.dev/api/people?page=2");
       return response.data.results;
     } catch (error) {
       return error;
