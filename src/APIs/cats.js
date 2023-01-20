@@ -4,12 +4,12 @@ import axios from "axios";
 //feel free to add more functions!
 
 const cats = {
-  get100Cats: async () => {
+  getXCats: async (catNumber) => {
     try {
       const response = await axios.get(
-        "https://api.thecatapi.com/v1/images/search?limit=100"
+        `https://api.thecatapi.com/v1/images/search?limit=${catNumber}`
       );
-      return response.data.results;
+      return response.data;
     } catch (error) {
       return error;
     }

@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import MainFunctional from "./components/mainFunctional";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <MainFunctional />
-      </div>
-    );
-  }
-}
+const root = ReactDOM.createRoot(
+  document.getElementById('root') 
+);
 
-ReactDOM.render(<App />, document.getElementById("root"));
-//render(<App />, document.getElementById("root"));
+root.render( 
+
+    <div className="App">
+        <MainFunctional />
+    </div>
+
+   
+)
+
