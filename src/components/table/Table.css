@@ -3,8 +3,11 @@
 #Table {
   margin:auto;
   width: 80vw; 
+  height:600px;
   border-collapse: collapse;
-  background-color: #4a83ed;
+  background-color: black;
+  color:gold;
+  
 }
 
 #Table th, #Table td {
@@ -15,16 +18,42 @@
 
 #Table th {
   width:max-content;
-  background-color: #f2f2f2; 
+  background-color: black; 
   font-weight: bold; 
+  /* display: flex; */
+  justify-content: space-between;
 }
 
 #TableContainer {
+  height:600px;
+  overflow: auto;
   display:flex;
   margin:auto;
   align-items: center;
   flex-wrap: nowrap;
   flex-direction: column;
+
+}
+
+#TableTitle {
+  color:gold;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 #ChangeUnitsContainer {
   display: flex;
@@ -32,6 +61,64 @@
 }
 
 #Button {
-  border-radius: 15%;
+  border-radius: 10%;
   background-color: none;
+}
+
+#removeButtonContainer {
+  background-color: black;
+}
+
+/* Style Buttons to see more information */
+#SelectDataButton {
+  width: 100%;
+  height: 100%;
+  color: gold;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+#SelectDataButton:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+#SelectDataButton:active {
+  transform: scale(0.9);
+}
+
+/*  */
+
+/* #SettingsButton {
+  width: 100%;
+  height: 100%;
+  color: gold;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+#SettingsButton:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+#SettingsButton:active {
+  transform: scale(0.9);
+} */
+
+#SettingsDropdown {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: none;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-color:gold;
+  --bs-btn-hover-bg: #3d4541;
+  --bs-btn-hover-border-color: #146c43;
+  --bs-btn-focus-shadow-rgb: 60,153,110;
+  --bs-btn-active-color: gold;
+  --bs-btn-active-bg: #3d4541;
+  --bs-btn-active-border-color: gold;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: none;
+  --bs-btn-disabled-border-color: none;
 }

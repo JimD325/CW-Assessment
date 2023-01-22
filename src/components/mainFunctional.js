@@ -3,7 +3,8 @@ import starwars from "../APIs/starwars";
 import { Footer } from "./footer/footer";
 import { Header } from "./header/header";
 import { TableComponent } from "./table/Table";
-
+import { CharacterModal } from "./modal/Modal";
+import './mainFunctional.css'
 
 function MainFunctional() {
   const [data, setData] = useState([]);
@@ -11,19 +12,18 @@ function MainFunctional() {
   
 
   useEffect(() => {
-    starwars.getPeople().then((response) => {
+    starwars.getAllEntities('people').then((response) => {
       setData(response);
+
+      console.log("data on mainFunctional", data)
     });
     
   }, []);
 
-  // const organizeData = (dataToSort) => {
-  //   console.log('dataSorted on organize Data')
-  //     setData(dataToSort)
-  // }
+
 
   return (
-      <div className="App">
+      <div id="App">
         <Header />
         <TableComponent data={data} />
         <Footer />

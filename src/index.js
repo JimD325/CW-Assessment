@@ -4,10 +4,10 @@ import MainFunctional from "./components/mainFunctional";
 const root = ReactDOM.createRoot(
   document.getElementById('root') 
 );
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 root.render( 
 
-    <div className="App">
+    <div id="App">
         <MainFunctional />
     </div>
 
