@@ -1,0 +1,22 @@
+#BodyContainer{
+  color: gold;
+  background: radial-gradient(circle at center, black, transparent);
+  height: 100%;
+  margin: 0px;
+  padding: 5px;
+  margin:auto;
+  text-align: center;
+  width: 80vw;
+}
+
+#GetButton{
+  width:20vw !important;
+  transition: all 0.09s ease-in-out;
+  border-radius: 10%;
+  background-color: gold;
+  color:black;
+  font-weight: bold;
+}
+#GetButton:active {
+  transform: scale(0.95);
+}

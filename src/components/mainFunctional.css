@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  
+}
+body {
+  background-image: url('../../assets/galacticBackground.jpg');
+  
+  background-size: cover;
+  background-position: center;
+}
+#App {
+  background: radial-gradient(circle at center, black, transparent);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
