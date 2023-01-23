@@ -1,32 +1,61 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import starwars from "../APIs/starwars";
-import { Footer } from "./footer/footer";
 import { Header } from "./header/header";
-import { TableComponent } from "./table/Table";
-import { CharacterModal } from "./modal/Modal";
+import { CharacterTable } from "./table/CharacterTable";
+import { PlanetTable } from "./table/PlanetTable";
+import { FilmsTable } from "./table/FilmsTable";
+import { Home } from "./home/Home";
+
 import './mainFunctional.css'
 
 function MainFunctional() {
   const [data, setData] = useState([]);
- 
+  const [dataParam, setDataParam] = useState('')
+  const [fetchingData, setFetchingData]= useState(true)
+  
   
 
-  useEffect(() => {
-    starwars.getAllEntities('people').then((response) => {
+  const handleSetParams = (param, quantity, pageNumber) => {
+    setData([]);
+    setDataParam(param)
+    if(quantity ==='all'){
+    setFetchingData(true)
+    starwars.getAllEntities(param).then((response) => {
       setData(response);
-
-      console.log("data on mainFunctional", data)
+      setFetchingData(false)
     });
+    } else if (quantity ==='page'){
+    setFetchingData(true)
+    starwars.getEntityByPage(param, pageNumber).then((response) => {
+      setData(response);
+      setFetchingData(false)
+    });
+    }
     
-  }, []);
-
-
+  }
 
   return (
       <div id="App">
         <Header />
-        <TableComponent data={data} />
-        <Footer />
+        <Home handleSetParams = {handleSetParams}/>
+        {dataParam == 'people' ?  
+          <CharacterTable data={data}
+          fetchingData={fetchingData}
+          dataParam={dataParam}
+          handleSetParams = {handleSetParams}/> :     
+        dataParam == 'planets'? 
+          <PlanetTable data={data}
+          fetchingData={fetchingData}
+          dataParam={dataParam}
+          handleSetParams = {handleSetParams}/> :     
+        dataParam == 'films' ? <FilmsTable
+          data={data}
+          fetchingData={fetchingData}
+          dataParam={dataParam}
+          handleSetParams = {handleSetParams}/> 
+          :
+        ''
+        }
       </div>
   );
 }

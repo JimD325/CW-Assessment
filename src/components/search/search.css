@@ -1,0 +1,39 @@
+#SearchForm {
+  width:80vw;
+  text-align: right;
+  margin: auto;
+  display: flex;
+  padding-bottom: 25px;
+}
+.form-control{
+  width: 70vw !important;
+}
+
+#MainButton{
+  width:20vw !important;
+  transition: all 0.09s ease-in-out;
+  border-radius: 10%;
+  background-color: gold;
+  color:black;
+  font-weight: bold;
+}
+#MainButton:active {
+  transform: scale(0.95);
+}
+
+#SettingsButton {
+  width:20vw !important;
+  transition: all 0.09s ease-in-out;
+  border-radius: 10%;
+  background-color: black;
+  color:gold;
+  font-weight: bold;
+}
+
+#SettingsButton:active {
+  transform: scale(0.95);
+}
+
+.dropdown-menu {
+  background-color: rgba(255, 217, 0, 0.763) !important;
+}

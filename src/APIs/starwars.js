@@ -5,7 +5,7 @@ const starwars = {
   getEntityByURL: async (URL) => {
     try {
       let response = await axios.get(`${URL}`);
-      console.log("get entity by URL ran", response.data)
+
       return response.data
     } catch (error) {
       return error;
@@ -19,16 +19,24 @@ const starwars = {
         holder= [...holder, response.data]
       }
 
-      console.log("get entity by URLArr ran", holder)
+
       return holder
     } catch (error) {
       return error;
     }
   },
 
-  getEntityPage: async (entityType, page) => {
+  /**
+   * Takes a string as an argument and places it in the swapi url. Returns all entities which fall under the entered category.
+   * @param {string} entityType The type of thing you are looking for
+   *  @param {number} page the page you are looking for the things on
+   * @returns {object[]} a list of all objects of the type you searched for on the page you looked at
+   */
+
+  getEntityByPage: async (entityType, page) => {
     try {
       let response = await axios.get(`https://swapi.dev/api/${entityType}?page=${page}`);
+
       return response.data.results;
     } catch (error) {
       return error;
@@ -42,7 +50,7 @@ const starwars = {
   getAllEntities: async (entityType) => {
     let page = 1;
     let holder = [];
-    console.log('getAllPeopelRan')
+
     try {
       let response = await axios.get(`https://swapi.dev/api/${entityType}?page=${page}`);
       page++;
@@ -50,19 +58,15 @@ const starwars = {
       holder = [...holder, ...response.data.results]
       let pageCount = Math.ceil(Number(response.data.count) / 10)
       while (page <= pageCount) {
-        response = await axios.get(`https://swapi.dev/api/people/?page=${page}`);
+        response = await axios.get(`https://swapi.dev/api/${entityType}/?page=${page}`);
         page++;
         holder = [...holder, ...response.data.results]
       }
       return holder;
     } catch (error) {
-      console.log("error on getAllPeople", error);
+;
     }
   },
-
-
-
-
   getStarships: async () => {
     try {
       let response = await axios.get("https://swapi.dev/api/starships");

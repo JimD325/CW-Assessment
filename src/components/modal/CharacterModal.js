@@ -4,32 +4,33 @@ import Modal from 'react-bootstrap/Modal';
 import starwars from '../../APIs/starwars';
 import Spinner from 'react-bootstrap/Spinner';
 
-export function MainModal(props) {
-  // console.log('props on modal', props)
+export function CharacterModal(props) {
   const [homeworld, setHomeworld]= useState([])
   const [films, setFilms]= useState([])
-  const [loadingHomeworld, setLoadingHomeworld] = useState([true])
   const [loadingFilms, setLoadingFilms] = useState([true])
 
-
-  useEffect(() => {
+  // calls for the homeworld for the character
+  
+  props.selecteditem[0]? 
+    useEffect(() => {
     starwars.getEntityByURL(props.selecteditem[0].homeworld).then((response)=> {
-      console.log('homeworld response', response)
+
      setHomeworld([response.name]);
      setLoadingHomeworld([false])
     })
    
-  }, []);
+  }, []) : ''
 
+  // calls for films the character appeared in
+  props.selecteditem[0]? 
   useEffect(()=> {
      starwars.getEntitiesFromListOfURLS(props.selecteditem[0].films).then((response)=> {
-      console.log('films response', response)
      setFilms(response);
      setLoadingFilms([false])
     })
-  },[]);
-
-  console.log('films', films)
+  },[]): ''
+  
+  
   return (
     <Modal
       {...props}
@@ -63,11 +64,10 @@ export function MainModal(props) {
     <li key={index}>{film.title}</li>
   )}
 </ol> : <Spinner animation="grow" />}
-
-        
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+      
+       
       </Modal.Footer>
     </Modal>
   );

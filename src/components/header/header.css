@@ -1,9 +1,8 @@
 #Title{
   color: gold;
-  background-color: black;
+  background: radial-gradient(circle at center, black, transparent);
   height: 100%;
-  margin: 0px;
-  padding: 5px;
+  padding: 15px;
   margin:auto;
   text-align: center;
   width: 80vw;
