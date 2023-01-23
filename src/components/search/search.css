@@ -22,7 +22,8 @@
 }
 
 #SettingsButton {
-  width:20vw !important;
+  min-width: fit-content;
+  width:15vw !important;
   transition: all 0.09s ease-in-out;
   border-radius: 10%;
   background-color: black;
@@ -36,4 +37,5 @@
 
 .dropdown-menu {
   background-color: rgba(255, 217, 0, 0.763) !important;
+  width:fit-content;
 }
